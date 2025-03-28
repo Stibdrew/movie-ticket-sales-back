@@ -38,17 +38,7 @@ class CreateOrderAPI(APIView):
 
         total_price = ticket_type.price * quantity
 
-<<<<<<< HEAD
         # Create the order and set default status
-=======
-        # Check if the user is authenticated or not
-        if request.user.is_authenticated:
-            user = request.user
-        else:
-            user = None  # Set the user as None for anonymous users
-
-        # Create the order
->>>>>>> 3cc93536c08004afa2f6a926e1c764e098a7b719
         order = Order.objects.create(
             user=user,  # Set user as None or the authenticated user
             ticket_type=ticket_type,

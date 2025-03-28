@@ -1,10 +1,6 @@
 from django.contrib import admin
-from .models import Order, OrderTicket
+from .models import Order
 from django.utils.html import format_html
-
-class OrderTicketInline(admin.TabularInline):
-    model = OrderTicket
-    extra = 1  # Allows adding more tickets inline in Order admin
 
 class OrderAdmin(admin.ModelAdmin):
     # Fields to display in the list view
@@ -20,7 +16,6 @@ class OrderAdmin(admin.ModelAdmin):
     ordering = ('-created_at',)
 
     # Inline Ticket Types within Order Admin
-    inlines = [OrderTicketInline]
 
     def display_ticket_types(self, obj):
         """

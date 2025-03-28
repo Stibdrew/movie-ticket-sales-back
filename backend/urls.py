@@ -18,7 +18,7 @@ from django.urls import path, include
 from rest_framework_simplejwt.views import TokenRefreshView
 from tickets.views import TicketAvailabilityAPI, ReserveTicketsAPI
 from payments.views import CreatePaymentIntent, PaymentWebhookAPI
-from orders.views import CreateOrderAPI, OrderHistoryAPI, order_summary
+from orders.views import CreateOrderAPI
 from users.views import CustomTokenObtainPairView, RegisterView 
 from tickets.views import TicketTypeListView
 from tickets.views import ConcertsAPI
@@ -43,10 +43,9 @@ urlpatterns = [
     path("api/ticket-types/", TicketTypeListView.as_view(), name="ticket-type-list"),
     # Orders
     path('api/orders/', CreateOrderAPI.as_view(), name='create-order'),
-    path('api/orders/history/', OrderHistoryAPI.as_view(), name='order-history'),
+    # path('api/orders/history/', OrderHistoryAPI.as_view(), name='order-history'),
 
     # Payments
-<<<<<<< HEAD
     path('api/payments/', include('payments.urls', namespace='payments')),
     path('api/payments/create-intent/', CreatePaymentIntent.as_view(), name='create-payment-intent'),
     path('api/payments/webhook/', PaymentWebhookAPI.as_view(), name='payment-webhook'),
@@ -56,13 +55,5 @@ urlpatterns = [
     # path('api/users/', include('users.urls')),
 
 
-=======
-    path('api/payments/create-intent/', 
-         CreatePaymentIntent.as_view(), name='create-payment-intent'),
-    path('api/payments/webhook/', 
-         PaymentWebhookAPI.as_view(), name='payment-webhook'),
-
-    path('api/order-summary/', order_summary, name='order-summary'),
->>>>>>> 3cc93536c08004afa2f6a926e1c764e098a7b719
 ]
 
