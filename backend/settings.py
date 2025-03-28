@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from pathlib import Path
 from datetime import timedelta
 import dj_database_url
+import django_heroku
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -200,4 +201,4 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 STRIPE_SECRET_KEY = os.environ.get('pk_test_51R2z2aECWNnJTaVHowVR8tPrPbT5xuFe2Q0ma0UaGC77PNSJQ0cruFqjaZVe5REFCyKizVjCRXVJbnW60JhaYRSf00NOQcvQPWY', 'sk_test_51R2z2aECWNnJTaVHiWLEhwa9e9aSBKMqWuSgTVvfz5T2yiD1Zy5zWT4bAWbndIShIMLOEPe3RLODnsgqqvrOlTlG003dTaTe7bkey')
 AUTH_USER_MODEL = 'users.CustomUser'
 
-dj_database_url(locals())
+django_heroku.settings(locals())
